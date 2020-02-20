@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="borrarFecha()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial de Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item >
+    <ion-label button (click)=abrirCalendario() mode= "ios">Búsqueda por fecha</ion-label>
+    <ion-label *ngIf="fecha!=null" button (click)=abrirCalendario() class="ion-text-right" button mode= "ios">{{fecha}}</ion-label>
+    <ion-button *ngIf="fecha!=null" color="danger" (click)="borrarFecha()">
+      <ion-icon name="close">
+
+      </ion-icon>
+    </ion-button>
+    <!--<ion-datetime  value="1990-02-19" placeholder="Select Date"></ion-datetime>-->
+  </ion-item>
+  <div *ngFor="let item of listapedidos">
+    <ion-card style="background-color: #dcefef;"  button="true" (click)="abrirDetalle(item.id)">
+      <ion-grid *ngIf="fecha==item.fechadepedido">
+          <ion-row>
+            <ion-col>
+              Fecha de pedido
+            </ion-col>
+            <ion-col>
+              {{item.fechadepedido}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Monto de compra
+            </ion-col>
+            <ion-col>
+              {{item.total | currency:'USD'}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Estado
+            </ion-col>
+            <ion-col>
+              {{item.estado}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Fecha de entrega
+            </ion-col>
+            <ion-col>
+              
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="fecha==null">
+        <ion-row>
+          <ion-col>
+            Fecha de pedido
+          </ion-col>
+          <ion-col>
+            {{item.fechadepedido}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Monto de compra
+          </ion-col>
+          <ion-col>
+            {{item.total | currency:'USD'}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Estado
+          </ion-col>
+          <ion-col>
+            {{item.estado}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Fecha de entrega
+          </ion-col>
+          <ion-col>
+            
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    </ion-card>
+  </div>
+  
+</ion-content>

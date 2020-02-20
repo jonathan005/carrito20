@@ -1,0 +1,58 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Información Personal </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ion-card>
+    <img src="https://thumbs.dreamstime.com/b/icono-de-la-muestra-del-usuario-s%C3%ADmbolo-de-la-persona-avatar-humano-84519083.jpg">
+  </ion-card>
+  <ion-item>
+    <ion-label style="text-align: center;">{{nombre}}</ion-label>
+  </ion-item>
+  <ion-grid style="background-color:#dcefef;">
+    <ion-row>
+      <ion-col>
+        Fecha de Nacimiento
+      </ion-col>
+      <ion-col>
+        {{fechaNac}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Edad
+      </ion-col>
+      <ion-col>
+        {{edad}} años
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Ciudad
+      </ion-col>
+      <ion-col>
+        Guayaquil
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Pais
+      </ion-col>
+      <ion-col>
+        Ecuador
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Correo Electrónico
+      </ion-col>
+      <ion-col>
+        {{correo}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,72 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title button='true'>
+      {{ viewTitle | uppercase}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="today()">HOY</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content >
+ 
+  <!-- Card for adding a new event -->
+  
+  <ion-item>
+    <ion-label>Mes</ion-label>
+    <ion-input type="number" placeholder="MM" style="width: 1%;" [(ngModel)]="monthSearch"></ion-input>
+    <ion-label>Año</ion-label>
+    <ion-input type="number" placeholder="YYYY" style="width: 1%;" [(ngModel)]="yearSearch"></ion-input>
+    <ion-button fill="clear" (click)=particularDate()>
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <div style="height: 40%;" > 
+ 
+  <calendar 
+  [eventSource]="eventSource" 
+  [calendarMode]="calendar.mode" 
+  [currentDate]="calendar.currentDate"
+  [showEventDetail]="false"
+  [locale]="calendar.locale"
+  [markDisabled]="markDisabled"
+  (particularDate)="particularDate($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)" 
+  (particularDate)="particularDate($event)"
+  startHour="6"
+  endHour="20"
+  step="30"
+  startingDayWeek="1">
+  </calendar>
+  </div>
+  <ion-row>
+    <!-- Change the displayed calendar mode -->
+ 
+    <!-- Move back one screen of the slides -->
+    <ion-col size="4" text-left>
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+ 
+    <ion-col size="4" text-center>
+      <ion-button (click)="seleccionar()" routerDirection=“back”>
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <!-- Move forward one screen of the slides -->
+    <ion-col size="4" text-right>
+      <ion-button fill="clear" (click)="next()">
+        <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

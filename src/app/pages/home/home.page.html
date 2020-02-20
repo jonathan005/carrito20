@@ -1,0 +1,22 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios" color="primary">
+    <ion-title color="light" align="center" >
+      BIENVENIDO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card *ngFor="let item of categorias" color="secondary" button="true" (click)="categoryclicked(item.nombre)">
+    <img *ngIf="item.url!=null" src="{{item.url}}" >
+    <img *ngIf="item.url==null" src="../../../assets/categoria.jpg">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{item.nombre}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

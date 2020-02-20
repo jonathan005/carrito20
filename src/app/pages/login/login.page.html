@@ -1,0 +1,34 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-title color="light" align="center" >
+      BIENVENIDO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content id="fondo" >
+  <div class="fadeIn" class="ion-padding">
+    
+    <ion-item transparent>
+      <ion-label mode = "ios" color="light" position="floating">Correo Electrónico</ion-label>
+      <ion-input mode= "ios" color="light" type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label mode= "ios" color="light" position="floating">Contraseña</ion-label>
+      <ion-input mode= "ios" color="light" Type="Password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button mode="ios" expand="block" (click)="onLogin()">
+      <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
+      Ingresar
+    </ion-button>
+    <ion-button color="secondary" mode="ios" expand="block" (click)=pagRegistrar()>
+      <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
+      Registrar
+    </ion-button>
+  </div>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="['/home-help']">
+    <ion-icon name="ios-help"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

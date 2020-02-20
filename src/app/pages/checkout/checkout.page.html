@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>CONFIRMAR PEDIDO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fadeIn" class="ion-padding">
+    <ion-item>
+      <ion-label>Forma de Pago</ion-label>
+      <ion-select  interface="popover" requiered [(ngModel)] ="formadepago" value="efectivo">
+        <ion-select-option value="efectivo">Efectivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col >Fecha:</ion-col>
+        <ion-col class="ion-text-right"><ion-text >{{fechadepedido}}</ion-text></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col >Total a pagar:</ion-col>
+        <ion-col class="ion-text-right"><ion-text>$ {{total}}</ion-text></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item transparent>
+      <ion-label>Ubicación</ion-label>
+    </ion-item>
+    <ion-card button (click)=abrirMapa()>
+      
+      <img *ngIf="latt == null" src="../../../assets/mapaubicacion.jpg"> <img *ngIf="latt!=null" src="https://maps.googleapis.com/maps/api/staticmap?center={{latt}},{{longg}}&zoom=18&size=600x300&maptype=roadmap
+      &markers=color:red%7Clabel:S%7C{{latt}},{{longg}}
+      &key=AIzaSyCvfIdW0WuMF0LP9t36hbJXFk1TrHw9E2g"/>
+    </ion-card>
+    <ion-item transparent>
+      <ion-label mode= "ios"   position="floating">Referencia</ion-label>
+      <ion-input mode= "ios" [(ngModel)] ="referencia"  Type="text" ></ion-input>
+    </ion-item>
+
+    <br>
+    <ion-button color="danger" mode="ios" expand="block" (click)=crearPedido()>
+      <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
+      Confirmar Pedido
+    </ion-button>
+    <ion-button color="secondary" mode="ios" expand="block" (click)=cancelarPedido()>
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>

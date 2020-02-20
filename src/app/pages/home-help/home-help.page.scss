@@ -1,0 +1,10 @@
+ion-toolbar{
+    --background: url('../../../assets/fondo.jpg') no-repeat center/cover fixed;
+}
+ion-content {
+    --background: url('../../../assets/fondo.jpg') no-repeat center/cover fixed;
+  }
+ion-item {
+    --background: none;
+    opacity:1;
+  }

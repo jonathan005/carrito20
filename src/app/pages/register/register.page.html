@@ -1,0 +1,74 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons style="color:white" slot="start" color='light'>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light" align="center" >
+      REGISTRAR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="fondo" >
+  <div class="fadeIn" class="ion-padding">
+    <ion-item transparent>
+      <ion-label mode = "ios"  position="floating">Nombres</ion-label>
+      <ion-input mode= "ios"  type="text" [(ngModel)]="nombres"></ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-label mode = "ios"  position="floating">Apellidos</ion-label>
+      <ion-input mode= "ios"  type="text" [(ngModel)]="apellidos" ></ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-label mode = "ios"  position="floating">Correo Electrónico</ion-label>
+      <ion-input mode= "ios"  type="email" [(ngModel)]="email" ></ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-label mode= "ios"  position="floating">Contraseña</ion-label>
+      <ion-input mode= "ios"  Type="Password" [(ngModel)]="password" ></ion-input>
+    </ion-item>
+    <ion-item button (click)=abrirCalendario()>
+      <ion-label mode= "ios">Fecha de Naciemiento</ion-label>
+      <ion-label class="ion-text-right" button mode= "ios">{{fecha}}</ion-label>
+
+      <!--<ion-datetime  value="1990-02-19" placeholder="Select Date"></ion-datetime>-->
+    </ion-item>
+    <!--
+    <ion-item>
+      <ion-label mode= "ios"  position="floating">Dia</ion-label>
+      <ion-input mode= "ios"  Type="number" [(ngModel)]="diaNac" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label mode= "ios"  position="floating">Mes</ion-label>
+      <ion-input mode= "ios"  Type="number" [(ngModel)]="mesNac" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label mode= "ios"  position="floating">Anio</ion-label>
+      <ion-input mode= "ios"  Type="number" [(ngModel)]="anioNac" ></ion-input>
+    </ion-item>
+    -->
+    <ion-item >
+      <ion-label >Ciudad</ion-label>
+      <ion-select  interface="popover" [(ngModel)]="ciudad">
+        <ion-select-option value="Guayaquil">Guayaquil</ion-select-option>
+        <ion-select-option value="Quito">Quito</ion-select-option>
+        <ion-select-option value="Cuenca">Cuenca</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item >
+      <ion-label >Pais</ion-label>
+      <ion-select  interface="popover" [(ngModel)]="pais">
+        <ion-select-option value="Guayaquil">Ecuador</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item transparent>
+      <ion-label mode = "ios"  position="floating">Edad</ion-label>
+      <ion-input mode= "ios"  type="number" [(ngModel)]="edad"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button color="secondary" mode="ios" expand="block" (click)=accionRegistro()>
+      <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
+      Confirmar Registro
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid >
+    <ion-row padding>
+      <ion-col size="5%">
+        <ion-text>
+          #
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          Producto
+        </ion-text>
+      </ion-col>
+      <ion-col size="20%">
+        <ion-text>
+          Precio
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-card style="background-color: #dcefef;" *ngFor= "let item of listaPedidos">
+      <ion-row *ngFor= "let p of item.productos">
+      <ion-col size="30%">
+        <ion-text >
+          {{p.amount}}
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          {{p.name}}
+        </ion-text>
+      </ion-col>
+      <ion-col size="20%">
+        <ion-text>
+          {{p.price | currency:'USD'}}
+        </ion-text>
+      </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>
+<ion-footer style="background-color: #f1dbda;" *ngFor= "let item of listaPedidos">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Subtotal
+      </ion-col>
+      <ion-col  class="ion-text-right">
+        $ {{item.subtotal | currency:'USD'}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col > 
+        Descuento ({{item.descuento }}%) (-) 
+      </ion-col>
+      <ion-col  class="ion-text-right">
+        {{obtenerDescuento(item.subtotal,item.descuento) | currency:'USD'}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        IVA(12%) (+)
+      </ion-col>
+      <ion-col  class="ion-text-right">
+         {{obtenerIVA() | currency:'USD'}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        TOTAL A PAGAR
+      </ion-col>
+      <ion-col  class="ion-text-right"> 
+        {{item.total | currency:'USD'}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h1></h1>
+  <h2></h2>
+</ion-footer>

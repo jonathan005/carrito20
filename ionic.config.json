@@ -1,0 +1,7 @@
+{
+  "name": "pruebatabs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
